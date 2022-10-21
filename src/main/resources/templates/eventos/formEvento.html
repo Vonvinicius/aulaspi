@@ -10,34 +10,32 @@
 <body>
 	<div th:replace="~{menu :: menu}"></div>
 
-	<h1>Adicionar Evento</h1>
+
 	<div class="container">
-		<h1>Bem vindo a nossa aplicação!</h1>
-		<h1>Igor Vinícius</h1>
-	
+		<h1>Adicionar Evento</h1>
 
-	<form action="/eventos" method="post">
+		<form action="/eventos" method="post">
 
-		<div>
-			<label>Nome:</label> <input type="text" name="nome">
-		</div>
+			<div>
+				<label>Nome:</label> <input type="text" name="nome">
+			</div>
 
-		<div>
-			<label>Local:</label> <input type="text" name="Local">
-		</div>
-		<div>
-			<label>Data:</label> <input type="text" name="Data">
-		</div>
+			<div>
+				<label>Local:</label> <input type="text" name="Local">
+			</div>
+			<div>
+				<label>Data:</label> <input type="text" name="Data">
+			</div>
 
-		<div>
-			<label>Horário:</label> <input type="text" name="Horário">
-		</div>
+			<div>
+				<label>Horário:</label> <input type="text" name="Horário">
+			</div>
 
-		<div>
-			<button class="waves-effect waves-light btn" type="submit">Salvar</button>
-			<button class="waves-effect waves-light btn"type="reset">Limpar</button>
-		</div>
-	</form>
+			<div>
+				<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+				<button class="waves-effect waves-light btn" type="reset">Limpar</button>
+			</div>
+		</form>
 	</div>
 
 </body>
