@@ -3,8 +3,11 @@ package ifrn.pi.eventos.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,10 +41,16 @@ public class EventosController {
 	}
 
 	@PostMapping
-	public String adicionar(Evento evento) {
+	public String salvar(@Valid Evento evento, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "redirect:/eventos/form";
+		}
+		
 		System.out.println(evento);
 		er.save(evento);
-		return "eventos/evento-adicionado";
+		
+		return "redirect:/eventos";
 	}
 
 	@GetMapping
@@ -87,6 +96,23 @@ public class EventosController {
 		cr.save(convidado);
 		
 		return "redirect:/eventos/{idEvento}";
+	}
+	
+	@GetMapping("/{id}/remover")
+	public String apagarEvento(@PathVariable Long id) {
+		
+		Optional<Evento> opt = er.findById(id);
+		
+		if(!opt.isEmpty()) {
+			
+			Evento evento = opt.get();
+			
+			List<Convidado> convidados = cr.findByEvento(evento);
+			cr.deleteAll(convidados);
+			er.delete(evento);
+		}
+		
+		return "redirect:/eventos";
 	}
 }
 

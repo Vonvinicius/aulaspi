@@ -14,7 +14,8 @@
 	<div class="container">
 		<h1>Adicionar Evento</h1>
 
-		<form action="/eventos" method="post">
+		<form action="/eventos" method="post" th:object="${evento}">
+		
 
 			<div>
 				<label>Nome:</label> <input type="text" name="nome">
