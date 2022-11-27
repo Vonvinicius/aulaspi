@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Evento {
@@ -16,10 +18,14 @@ public class Evento {
 		return "Evento [id=" + id + ", nome=" + nome + ", local=" + local + ", data=" + data + ", horario=" + horario
 				+ "]";
 	}
-
+	
+	@NotBlank
 	private String nome;
+	@NotBlank
 	private String local;
+	@NotBlank
 	private String data;
+	@NotBlank
 	private String horario;
 	
 	public Long getId() {
