@@ -35,12 +35,16 @@
 			<div class="col s12">
 
 						<span class="card-title">Adicionar Convidado:</span>
-						<form action="" method="post">
+						<form th:action="@{/eventos/{idEvento}(idEvento=${eventp.id})}" method="post">
+						
+						<div>
+							<input type="hidden" name="id" th:value="${convidado.id}"></input>
+						</div>
 							<div>
-								<label>Nome:</label> <input type="text" name="nome"></input>
+								<label>Nome:</label> <input type="text" name="nome" th:value="${convidado.nome}"></input>
 							</div>
 							<div>
-								<label>RG:</label> <input type="text" name="rg"></input>
+								<label>RG:</label> <input type="text" name="rg" th:value="${convidado.rg}"></input>
 							</div>
 							<div>
 								<button type="submit" class="btn">Salvar</button>
@@ -62,6 +66,7 @@
 										<td th:text="${c.id}">Id</td>
 										<td th:text="${c.nome}">Nome</td>
 										<td th:text="${c.rg}">RG</td>
+
 									</tr>
 								</thead>
 								<tbody>

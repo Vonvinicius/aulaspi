@@ -15,21 +15,29 @@
 		<h1>Adicionar Evento</h1>
 
 		<form action="/eventos" method="post" th:object="${evento}">
-		
 
 			<div>
-				<label>Nome:</label> <input type="text" name="nome">
+				<input type="hidden" name="id"
+					th:value="${evento.id}" readonly="readonly">
 			</div>
 
 			<div>
-				<label>Local:</label> <input type="text" name="Local">
-			</div>
-			<div>
-				<label>Data:</label> <input type="text" name="Data">
+				<label>Nome:</label> <input type="text" name="nome"
+					th:value="${evento.nome}">
 			</div>
 
 			<div>
-				<label>Horário:</label> <input type="text" name="Horário">
+				<label>Local:</label> <input type="text" name="Local"
+					th:value="${evento.local}">
+			</div>
+			<div>
+				<label>Data:</label> <input type="text" name="Data"
+					th:value="${evento.data}">
+			</div>
+
+			<div>
+				<label>Horário:</label> <input type="text" name="Horário"
+					th:value="${evento.horario}">
 			</div>
 
 			<div>
